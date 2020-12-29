@@ -177,8 +177,10 @@ public final class IPCClient implements Closeable {
             System.out.println("Client is now connected and ready!");
         }
 
-        if (listener != null)
+        if (listener != null) {
             listener.onReady(this);
+            pipe.setListener(listener);
+        }
         startReading();
     }
 

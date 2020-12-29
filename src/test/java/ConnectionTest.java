@@ -5,7 +5,7 @@ import com.jagrosh.discordipc.exceptions.NoDiscordClientException;
 
 import java.time.OffsetDateTime;
 
-public class Main {
+public class ConnectionTest {
 
     public static void main(String[] args) throws NoDiscordClientException {
         System.out.println("Booting RPC...");
@@ -24,4 +24,5 @@ public class Main {
         client.connect();
         System.out.println("Check Discord...");
     }
+
 }

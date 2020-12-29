@@ -446,11 +446,11 @@ public final class IPCClient implements Closeable {
                                 JsonObject data = json.getAsJsonObject("data");
                                 switch (Event.of(json.getAsJsonPrimitive("evt").getAsString())) {
                                     case ACTIVITY_JOIN:
-                                        listener.onActivityJoin(localInstance, data.getAsJsonObject("secret").getAsString());
+                                        listener.onActivityJoin(localInstance, data.getAsJsonPrimitive("secret").getAsString());
                                         break;
 
                                     case ACTIVITY_SPECTATE:
-                                        listener.onActivitySpectate(localInstance, data.getAsJsonObject("secret").getAsString());
+                                        listener.onActivitySpectate(localInstance, data.getAsJsonPrimitive("secret").getAsString());
                                         break;
 
                                     case ACTIVITY_JOIN_REQUEST:

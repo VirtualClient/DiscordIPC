@@ -75,7 +75,7 @@ public abstract class Pipe {
 
                     Packet p = pipe.read(); // this is a valid client at this point
 
-                    final JsonObject parsedData = JsonParser.parseString(p.getJson().getAsJsonPrimitive("").getAsString()).getAsJsonObject();
+                    final JsonObject parsedData = p.getJson();
                     final JsonObject data = parsedData.getAsJsonObject("data");
                     final JsonObject userData = data.getAsJsonObject("user");
 

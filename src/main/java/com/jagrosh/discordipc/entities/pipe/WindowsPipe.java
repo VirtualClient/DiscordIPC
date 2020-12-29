@@ -18,6 +18,7 @@ package com.jagrosh.discordipc.entities.pipe;
 
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
+import com.google.gson.JsonParser;
 import com.jagrosh.discordipc.IPCClient;
 import com.jagrosh.discordipc.entities.Callback;
 import com.jagrosh.discordipc.entities.Packet;
@@ -65,8 +66,8 @@ public class WindowsPipe extends Pipe {
 
         file.readFully(d);
 
-        JsonObject packetData = new JsonObject();
-        packetData.addProperty("", new String(d));
+        JsonObject packetData = JsonParser.parseString(new String(d)).getAsJsonObject();
+
         Packet p = new Packet(op, packetData, ipcClient.getEncoding());
 
         if (ipcClient.isDebugMode()) {

@@ -107,16 +107,17 @@ public class RichPresence {
         if (partyId != null) {
             party.addProperty("id", partyId);
 
-            JsonArray partyData = new JsonArray();
 
             if (partySize > 0) {
+                JsonArray partyData = new JsonArray();
+
                 partyData.add(new JsonPrimitive(partySize));
 
                 if (partyMax >= partySize) {
                     partyData.add(new JsonPrimitive(partyMax));
                 }
+                party.add("size", partyData);
             }
-            party.add("size", partyData);
         }
 
         if (joinSecret != null && !joinSecret.isEmpty()) {
